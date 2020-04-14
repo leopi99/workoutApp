@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workout/pages/homepage/home.dart';
+import 'package:workout/models/palette.dart';
+import 'package:workout/pages/skeletonpage/skeleton.dart';
+import 'package:provider/provider.dart';
+import 'package:workout/states/nav_state.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => NavState(),
+          ),
+        ],
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,12 +22,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Workout',
       theme: ThemeData(
+        scaffoldBackgroundColor: Palette().scaffoldBackgroundColor,
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.openSansTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
-      home: Homepage(),
+      home: SkeletonPage(),
     );
   }
 }
