@@ -5,9 +5,10 @@ Android - IOS app built with the Google Flutter SDK.
 Coming soon...
 
 ## Credits
-Inspired by the [Cleveroad][0] design available on dribbble at this URL: https://dribbble.com/shots/11008753-App-for-Gym-Chains
+Inspired by the [Cleveroad][0] design available on dribbble [here][1] 
 
 Images are from [unDraw][1] site.
 
 [0]: https://dribbble.com/cleveroad "Cleveroad Dribbble"
-[1]: https://undraw.co/illustrations "unDraw"
+[1]: https://dribbble.com/shots/11008753-App-for-Gym-Chains "Design"
+[2]: https://undraw.co/illustrations "unDraw"
