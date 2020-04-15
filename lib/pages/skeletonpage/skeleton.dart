@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:workout/pages/homepage/home.dart';
+import 'package:workout/pages/schedulepage/schedule.dart';
 import 'package:workout/pages/widgets/navbar.dart';
+import 'package:workout/states/nav_state.dart';
 
 List<Widget> _pages = [
   Homepage(),
+  Center(
+    child: Text('Pagina sugli esercizi'),
+  ),
+  SchedulePage(),
+  Center(
+    child: Text('Pagina dell\'account'),
+  ),
 ];
 
 class SkeletonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text('Il tuo personal trainer'),
-            SizedBox(height: 8.0),
-            SvgPicture.asset(
-              'images/svgs/personal_trainer.svg',
-              height: 156.0,
-              width: 312.0,
-            ),
-          ],
+      body: Consumer<NavState>(
+        builder: (context, state, _) => Center(
+          child: _pages[state.index],
         ),
       ),
       bottomNavigationBar: NavBar(),

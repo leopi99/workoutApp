@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:workout/models/palette.dart';
+import 'package:workout/states/nav_state.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -9,24 +12,48 @@ class NavBar extends StatelessWidget {
         top: Radius.circular(28),
       ),
       clipBehavior: Clip.antiAlias,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          _PageWidget(
-            Icon(
-              Icons.home,
-              color: Colors.grey[400],
+      child: Consumer<NavState>(
+        builder: (context, state, _) => Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            _PageWidget(
+              Icon(
+                Icons.home,
+                color: state.index == 0
+                    ? Palette().greySelected
+                    : Palette().greyUnselected,
+              ),
+              () => state.changePage(0),
             ),
-            () {},
-          ),
-          _PageWidget(
-            Icon(
-              Icons.account_circle,
-              color: Colors.grey[400],
+            _PageWidget(
+              Icon(
+                Icons.fitness_center,
+                color: state.index == 1
+                    ? Palette().greySelected
+                    : Palette().greyUnselected,
+              ),
+              () => state.changePage(1),
             ),
-            () {},
-          ),
-        ],
+            _PageWidget(
+              Icon(
+                Icons.layers,
+                color: state.index == 2
+                    ? Palette().greySelected
+                    : Palette().greyUnselected,
+              ),
+              () => state.changePage(2),
+            ),
+            _PageWidget(
+              Icon(
+                Icons.account_circle,
+                color: state.index == 3
+                    ? Palette().greySelected
+                    : Palette().greyUnselected,
+              ),
+              () => state.changePage(3),
+            ),
+          ],
+        ),
       ),
     );
   }
