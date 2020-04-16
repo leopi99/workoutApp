@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:workout/models/palette.dart';
 import 'package:workout/pages/skeletonpage/skeleton.dart';
 import 'package:provider/provider.dart';
+import 'package:workout/states/exercise_state.dart';
 import 'package:workout/states/nav_state.dart';
 
 void main() => runApp(
@@ -10,6 +11,9 @@ void main() => runApp(
         providers: [
           ChangeNotifierProvider(
             create: (context) => NavState(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => ExerciseState(),
           ),
         ],
         child: MyApp(),

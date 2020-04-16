@@ -1,7 +1,15 @@
 class Exercise {
   String name;
   String description;
-  List<DateTime>
-      weekDay; //Day or Days of the week when the user want to do that exercise
-  DateTime from, to;
+  List<int>
+      weekDays; //Day or Days of the week when the user want to do that exercise
+  String from, to;
+
+  Exercise({
+    this.weekDays,
+    this.description,
+    this.from,
+    this.to,
+    this.name,
+  });
 }

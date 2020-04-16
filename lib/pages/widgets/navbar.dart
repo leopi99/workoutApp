@@ -6,10 +6,13 @@ import 'package:workout/states/nav_state.dart';
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(28),
+    return Container(
+      height: 64.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(24),
+        ),
+        color: Colors.white,
       ),
       clipBehavior: Clip.antiAlias,
       child: Consumer<NavState>(
@@ -66,6 +69,11 @@ class _PageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(icon: icona, onPressed: strada);
+    return IconButton(
+      icon: icona,
+      onPressed: strada,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent
+    );
   }
 }
