@@ -14,7 +14,6 @@ class NavBar extends StatelessWidget {
         ),
         color: Colors.white,
       ),
-      clipBehavior: Clip.antiAlias,
       child: Consumer<NavState>(
         builder: (context, state, _) => Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -70,10 +69,9 @@ class _PageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: icona,
-      onPressed: strada,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent
-    );
+        icon: icona,
+        onPressed: strada,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent);
   }
 }

@@ -1,13 +1,13 @@
 # WorkoutApp
-Android - IOS app built with the Google Flutter SDK.
+Android - IOS app creata utilizzando Flutter.
 
 ## Features
-Coming soon...
+In arrivo...
 
 ## Credits
-Inspired by the [Cleveroad][0] design available on dribbble [here][1] 
+Design ispirato dal mockup di [Cleveroad][0] disponibile su dribbble [qui][1] 
 
-Images are from [unDraw][1] site.
+Immagini(svg) prese da [unDraw][1].
 
 [0]: https://dribbble.com/cleveroad "Cleveroad Dribbble"
 [1]: https://dribbble.com/shots/11008753-App-for-Gym-Chains "Design"

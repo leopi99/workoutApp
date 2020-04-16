@@ -17,7 +17,8 @@ class ExerciseState with ChangeNotifier {
     notifyListeners();
   }
 
-  List<Exercise> get todayExercises => _exercises
-      .where((element) => element.weekDays.contains(DateTime.now().weekday))
+//Returns the exercises for a defined day
+  List<Exercise> exerciseFor(int weekday) => _exercises
+      .where((element) => element.weekDays.contains(weekday))
       .toList();
 }
