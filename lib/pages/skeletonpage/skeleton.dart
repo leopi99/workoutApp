@@ -20,9 +20,12 @@ class SkeletonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<NavState>(
-        builder: (context, state, _) => Center(
-          child: _pages[state.index],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0).copyWith(top: 8),
+        child: Consumer<NavState>(
+          builder: (context, state, _) => Center(
+            child: _pages[state.index],
+          ),
         ),
       ),
       bottomNavigationBar: NavBar(),
