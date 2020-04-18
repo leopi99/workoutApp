@@ -6,9 +6,16 @@ class ExerciseState with ChangeNotifier {
     Exercise(
       description: '4 serie di flessioni da 10',
       name: 'Piegamenti',
-      weekDays: [0, 1, 2, 3, 4, 5, 6],
+      weekDays: [5],
       from: '10:00',
       to: '10:30',
+    ),
+    Exercise(
+      description: '4 serie da 10',
+      name: 'Manubrio',
+      weekDays: [2, 6],
+      from: '11:00',
+      to: '11:30',
     ),
   ];
 

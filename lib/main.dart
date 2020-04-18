@@ -10,7 +10,7 @@ void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(
-            create: (context) => NavState(),
+            create: (context) => NavState(dayIndex: DateTime.now().weekday - 1),
           ),
           ChangeNotifierProvider(
             create: (context) => ExerciseState(),
