@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
 import 'package:workout/states/exercise_state.dart';
 import 'package:workout/states/nav_state.dart';
 
+import 'package:workout/pages/homepage/exercise_widget.dart';
 //  Page with all the exercises to do today
 
 enum Days { LUN, MAR, MER, GIO, VEN, SAB, DOM }
+enum Months {
+  gennaio,
+  febbraio,
+  marzo,
+  aprile,
+  maggio,
+  giugno,
+  luglio,
+  agosto,
+  settembre,
+  ottobre,
+  novembre,
+  dicembre
+}
 
 class Homepage extends StatelessWidget {
   @override
@@ -120,20 +136,24 @@ class Homepage extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Text('Oggi ${DateTime.now().day}/${DateTime.now().month}'),
-                  ],
+        if (Provider.of<NavState>(context).dayIndex ==
+            DateTime.now().weekday - 1)
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Material(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Oggi | ${DateTime.now().day} ${Months.values[DateTime.now().month].toString().substring(
+                        7,
+                      )}',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                 ),
-                Row(),
-              ],
+              ),
             ),
-          ],
-        ),
+          ),
         Provider.of<ExerciseState>(context)
                     .exerciseFor(Provider.of<NavState>(context).dayIndex)
                     .length ==
@@ -153,25 +173,16 @@ class Homepage extends StatelessWidget {
               )
             : ListView.builder(
                 shrinkWrap: true,
-                itemBuilder: (context, index) => _ExerciseWidget(index),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                itemBuilder: (context, index) => ExerciseWidget(
+                  Provider.of<ExerciseState>(context).exerciseFor(
+                      Provider.of<NavState>(context).dayIndex)[index],
+                ),
                 itemCount: Provider.of<ExerciseState>(context)
                     .exerciseFor(Provider.of<NavState>(context).dayIndex)
                     .length,
               ),
       ],
-    );
-  }
-}
-
-class _ExerciseWidget extends StatelessWidget {
-  final int _exerciseIndex;
-  _ExerciseWidget(this._exerciseIndex);
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      borderRadius: BorderRadius.circular(12),
-      clipBehavior: Clip.antiAlias,
-      child: Row(),
     );
   }
 }

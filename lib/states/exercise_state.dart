@@ -19,6 +19,8 @@ class ExerciseState with ChangeNotifier {
     ),
   ];
 
+  Exercise exerciseat(int index) => _exercises[index];
+
   void addExercise(Exercise exe) {
     _exercises.add(exe);
     notifyListeners();
