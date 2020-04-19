@@ -63,7 +63,7 @@ class Homepage extends StatelessWidget {
                                 fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                           Text(
-                            '5 mancanti',
+                            '1 mancante',
                             style: TextStyle(
                               color: Colors.grey[350],
                               fontWeight: FontWeight.w600,
@@ -146,7 +146,7 @@ class Homepage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  'Oggi | ${DateTime.now().day} ${Months.values[DateTime.now().month].toString().substring(
+                  'Oggi, ${DateTime.now().day} ${Months.values[DateTime.now().month].toString().substring(
                         7,
                       )}',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),

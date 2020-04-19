@@ -8,6 +8,8 @@ import 'package:workout/pages/exercise_page/exercise_page.dart';
 
 import 'package:workout/states/exercise_state.dart';
 
+const int NAME_LENGTH = 30;
+
 class ExerciseWidget extends StatelessWidget {
   final Exercise exercise;
   ExerciseWidget(this.exercise);
@@ -47,7 +49,7 @@ class ExerciseWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        '${exercise.name.length > 30 ? exercise.name.substring(0, 30) + "..." : exercise.name}',
+                        '${exercise.name.length > NAME_LENGTH ? exercise.name.substring(0, NAME_LENGTH) + "..." : exercise.name}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
