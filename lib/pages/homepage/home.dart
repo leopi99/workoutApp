@@ -63,7 +63,7 @@ class Homepage extends StatelessWidget {
                                 fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                           Text(
-                            '1 mancante',
+                            '${Provider.of<ExerciseState>(context).exerciseFor(Provider.of<NavState>(context).dayIndex).length - Provider.of<ExerciseState>(context).exerciseFor(Provider.of<NavState>(context).dayIndex).where((element) => element.done ?? false).length} mancante',
                             style: TextStyle(
                               color: Colors.grey[350],
                               fontWeight: FontWeight.w600,

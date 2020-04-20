@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:workout/pages/homepage/home.dart';
-import 'package:workout/pages/schedulepage/schedule.dart';
+import 'package:workout/pages/all_exercise_page/all_exercise.dart';
 import 'package:workout/pages/widgets/navbar.dart';
 import 'package:workout/states/nav_state.dart';
 
 List<Widget> _pages = [
   Homepage(),
   Center(
-    child: Text('Pagina sugli esercizi'),
+    child: Text('Pagina sugli attrezzi'),
   ),
-  SchedulePage(),
+  AllExercises(),
   Center(
     child: Text('Pagina dell\'account'),
   ),

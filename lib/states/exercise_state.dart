@@ -9,6 +9,7 @@ class ExerciseState with ChangeNotifier {
       weekDays: [5],
       from: '10:00',
       to: '10:30',
+      done: false,
     ),
     Exercise(
       description: '4 serie da 10',
@@ -16,6 +17,7 @@ class ExerciseState with ChangeNotifier {
       weekDays: [2, 6],
       from: '11:00',
       to: '11:30',
+      done: false,
     ),
     Exercise(
       description:
@@ -24,11 +26,24 @@ class ExerciseState with ChangeNotifier {
       weekDays: [0, 3],
       from: '01:00',
       to: '11:30',
+      done: false,
     ),
   ];
 
+//Sets the done var
+  void setDone(Exercise ex) {
+    int index = _exercises.indexOf(ex);
+    _exercises[index].done = !_exercises[index].done;
+    notifyListeners();
+  }
+
+//Returns the exercise from an index
   Exercise exerciseat(int index) => _exercises[index];
 
+//Returns the length of the list of exercises
+  int get exerciseLength => _exercises.length;
+
+//Adds an exercise to the list
   void addExercise(Exercise exe) {
     _exercises.add(exe);
     notifyListeners();

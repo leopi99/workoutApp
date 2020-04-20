@@ -20,9 +20,13 @@ class ExerciseWidget extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => ExercisePage(exercise: exercise))),
+        context,
+        MaterialPageRoute(
+          builder: (context) => ExercisePage(exercise: exercise),
+        ),
+      ),
+      onLongPress: () =>
+          Provider.of<ExerciseState>(context, listen: false).setDone(exercise),
       child: Material(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -37,7 +41,9 @@ class ExerciseWidget extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                      color: Palette().greyUnselected,
+                      color: exercise.done ?? false
+                          ? Colors.green
+                          : Palette().greyUnselected,
                       borderRadius: BorderRadius.circular(2),
                     ),
                     margin: EdgeInsets.only(right: 14),
